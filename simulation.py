@@ -96,6 +96,8 @@ class Simulation:
                 ]
                 py.display.flip()
                 sleep(self.speed)
+            else:
+                sleep(0.02)
 
     def draw(self, boxHeight: int, boxWidth: int):
         x = 0
