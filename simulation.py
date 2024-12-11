@@ -36,9 +36,7 @@ class Simulation:
                     j.isAlive = False
 
     def start(self):
-        py.init()
         while True:
-            #self.clock.tick(1)
             for event in py.event.get():
                 if event.type == QUIT:
                     py.quit()
@@ -97,7 +95,7 @@ class Simulation:
                     for i in self.board for j in i
                 ]
                 py.display.flip()
-            sleep(self.speed)
+                sleep(self.speed)
 
     def draw(self, boxHeight: int, boxWidth: int):
         x = 0
