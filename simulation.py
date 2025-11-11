@@ -23,7 +23,7 @@ class Simulation:
         self.clock = py.time.Clock()
         self.paused = False
         self.temp = []
-        self.speed = 0.5
+        self.speed = 0.2
         self.color = (255, 120, 120)
         self.colors = [(173, 216, 230), (255, 120, 120), (5, 252, 42), (0, 255, 0), (141, 5, 252), (255, 0, 0), (0, 0, 255), (0, 0, 0)]
 
