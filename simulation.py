@@ -6,20 +6,21 @@ from pygame.locals import QUIT
 from time import sleep
 
 class Simulation:
-
     def __init__(self):
-        self.cells = 10
-        self.cellSize = 10
-        self.board = [[Cell(x, y, self.cellSize) for x in range(40)]
-                                    for y in range(40)]
-        self.board[19][18].isAlive = True
-        self.board[19][19].isAlive = True
-        self.board[19][20].isAlive = True
-        self.screen = py.display.set_mode((400, 400))
+        self.width = 800
+        self.height = self.width # Square window
+        self.screen = py.display.set_mode((self.width, self.height))
+        
+        self.cellSize = 20
+        self.cells = self.width // self.cellSize # Number of cells in a row/column 
+        self.board = [[Cell(x, y, self.cellSize) for x in range(self.cells)]
+                                    for y in range(self.cells)]
+        self.board[self.cells // 2][self.cells // 2 - 1].isAlive = True
+        self.board[self.cells // 2][self.cells // 2].isAlive = True
+        self.board[self.cells // 2][self.cells // 2 + 1].isAlive = True
+        
         py.display.set_caption('The Game of Life')
         self.clock = py.time.Clock()
-        self.width = 400
-        self.height = 400
         self.paused = False
         self.temp = []
         self.speed = 0.5
